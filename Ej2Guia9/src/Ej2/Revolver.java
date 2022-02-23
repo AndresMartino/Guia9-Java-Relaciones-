@@ -10,54 +10,62 @@ package Ej2;
  * @author Andrelo
  */
 public class Revolver {
-    private int actualPosition;
-    private int waterPosition;
+
+    private int posicionActual;
+    private int posicionAgua;
 
     public Revolver() {
     }
 
-    public Revolver(int actualPosition, int waterPosition) {
-        this.actualPosition = actualPosition;
-        this.waterPosition = waterPosition;
+    public Revolver(int posocionActual, int posicionAgua) {
+        this.posicionActual = posocionActual;
+        this.posicionAgua = posicionAgua;
     }
 
-    public int getActualPosition() {
-        return actualPosition;
+    public int getPosocionActual() {
+        return posicionActual;
     }
 
-    public void setActualPosition(int actualPosition) {
-        this.actualPosition = actualPosition;
+    public void setPosocionActual(int posocionActual) {
+        this.posicionActual = posocionActual;
     }
 
-    public int getWaterPosition() {
-        return waterPosition;
+    public int getPosicionAgua() {
+        return posicionAgua;
     }
 
-    public void setWaterPosition(int waterPosition) {
-        this.waterPosition = waterPosition;
+    public void setPosicionAgua(int posicionAgua) {
+        this.posicionAgua = posicionAgua;
     }
-    
-    public void fillRevolver(){
-        this.actualPosition=(int)Math.random()*6+1;
-        this.waterPosition=(int)Math.random()*6+1;
+
+    public void llenarRevovler() {
         
+        this.posicionActual = (int) (Math.random() * 6)+ 1;
+        
+        this.posicionAgua = (int) (Math.random() * 6)+ 1;
+
     }
-    
-    public boolean wet(){
-        if (this.actualPosition==this.waterPosition) {
+
+    public boolean mojar() {
+        if (this.posicionActual == this.posicionAgua) {
             return true;
+        } else {
+            siguienteChorro();
         }
         return false;
     }
-    
-    public void nextBlast(){
-        if (wet()) {
-            if (this.actualPosition==6) {
-                this.actualPosition=1;
-            }else{
-                this.actualPosition+=this.actualPosition;
-            }
+
+    public void siguienteChorro() {
+        if (this.posicionActual==6) {
+            this.posicionActual=1;
+        }else{
+            this.posicionActual++;
         }
-    
     }
+
+    @Override
+    public String toString() {
+        return "Revolver{" + "posicionActual=" + posicionActual + ", posicionAgua=" + posicionAgua + '}';
+    }
+    
 }
