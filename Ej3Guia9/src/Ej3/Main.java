@@ -7,7 +7,7 @@ package Ej3;
 
 /**
  *
- * @author Andrelo
+ * @author andrelo
  */
 public class Main {
 
